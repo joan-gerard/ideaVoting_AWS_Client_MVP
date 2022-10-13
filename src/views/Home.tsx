@@ -1,9 +1,38 @@
-import React from 'react'
+import { Button } from "@aws-amplify/ui-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const [privateBoardID, setPrivateBoardID] = useState("");
 
-export default Home
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "300px",
+        margin: "30px auto",
+      }}
+    >
+      <Link to="/boards">
+        <Button>View Public Boards</Button>
+      </Link>
+      <div style={{ margin: "10px" }}>
+        <input
+          type="text"
+          value={privateBoardID}
+          onChange={(e) => setPrivateBoardID(e.target.value)}
+          placeholder="private board ID"
+        />
+        <Link to={`/board/${privateBoardID}`}>
+          <Button>View Private Board</Button>
+        </Link>
+      </div>
+      <Link to="/createboard/">
+        <Button>Create New Board</Button>
+      </Link>
+    </div>
+  );
+};
+
+export default Home;

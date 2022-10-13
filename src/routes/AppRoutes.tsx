@@ -1,13 +1,11 @@
-import React from 'react'
-import { AuthEventData, AmplifyUser } from '@aws-amplify/ui';
-import { Route, Link, Routes } from 'react-router-dom';
+import React from "react";
+import { AuthEventData, AmplifyUser } from "@aws-amplify/ui";
+import { Route, Link, Routes } from "react-router-dom";
 
-import Home from '../views/Home';
-import ViewBoards from '../views/ViewBoards';
-import ViewBoard from '../views/ViewBoard';
-import CreateBoard from '../views/CreateBoard';
-
-
+import Home from "../views/Home";
+import ViewBoards from "../views/ViewBoards";
+import ViewBoard from "../views/ViewBoard";
+import CreateBoard from "../views/CreateBoard";
 
 interface Props extends React.PropsWithChildren {
   user: AmplifyUser | undefined;
@@ -35,6 +33,6 @@ const AppRoutes = (props: Props) => {
       </Routes>
     </div>
   );
-}
+};
 
-export default AppRoutes
+export default AppRoutes;
