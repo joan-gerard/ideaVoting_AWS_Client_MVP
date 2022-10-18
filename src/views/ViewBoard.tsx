@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import API from "../utils/API";
@@ -64,7 +64,9 @@ const ViewBoard = () => {
           message: string;
         };
         console.log(responseData);
-        toast(responseData.message);
+        toast(responseData.message, {
+          transition: Flip,
+        });
       }
     });
     getBoard();

@@ -1,7 +1,7 @@
 import { Button } from "@aws-amplify/ui-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 
 import API from "../utils/API";
 
@@ -22,7 +22,9 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   const deleteBoard = async (id: string) => {
     await API.delete<BoardData>({ path: `/boards/${id}` });
     getBoards();
-    toast("board deleted");
+    toast("board deleted", {
+      transition: Flip,
+    });
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Button } from "@aws-amplify/ui-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import API from "../utils/API";
@@ -26,9 +26,10 @@ const CreateBoard = () => {
           message: string;
         };
         console.log(responseData);
-        toast(responseData.message);
+        toast(responseData.message, {
+          transition: Flip,
+        });
       }
-
     });
 
     navigate(`/boards/${res.id}`);

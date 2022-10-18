@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@aws-amplify/ui-react";
-import { toast } from "react-toastify";
+import { Flip, toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import API from "../utils/API";
@@ -11,9 +11,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const viewPrivateBoard = async () => {
-
     if (!privateBoardID) {
-      toast("Please enter a board id");
+      toast("Please enter a board id", {
+        transition: Flip,
+      });
       return;
     }
 
@@ -28,7 +29,9 @@ const Home = () => {
     ) {
       navigate(`/boards/${privateBoardID}`);
     } else {
-      toast("Board with this id does not exist")
+      toast("Board with this id does not exist", {
+        transition: Flip,
+      });
     }
   };
 
