@@ -7,6 +7,7 @@ console.log({ baseUrl });
 
 const API = {
   get: async <T>({ path }: { path: string }) => API.request<T>({ path }),
+  delete: async <T>({ path }: { path: string }) => API.request<T>({ path, method: "DELETE" }),
   post: ({ path, data }: { path: string; data: Record<string, any> }) => {
     return API.request({ path, data, method: "POST" });
   },

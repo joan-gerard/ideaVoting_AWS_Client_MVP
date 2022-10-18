@@ -28,7 +28,7 @@ const AppRoutes = (props: Props) => {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/boards" element={<ViewBoards />} />
+        <Route path="/boards" element={<ViewBoards user={props.user} />} />
         <Route path="/boards/:id" element={<ViewBoard />} />
 
         <Route path="/createboard/" element={<CreateBoard />} />

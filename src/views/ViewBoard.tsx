@@ -25,7 +25,6 @@ const ViewBoard = () => {
 
     if (ms) {
       const date = new Date(ms);
-      console.log({ date });
       setDate(date.toDateString());
     }
   };
@@ -36,8 +35,6 @@ const ViewBoard = () => {
   useEffect(() => {
     getDate();
   }, [boardData]);
-
-  console.log({ boardData });
 
   const submitIdea = async () => {
     const res = await API.post({

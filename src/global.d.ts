@@ -17,4 +17,9 @@ interface BoardListData {
   id: string;
   owner: string;
   public: true;
+  ownerId: string
+}
+
+type ViewBoardsProps = {
+  user: AmplifyUser
 }

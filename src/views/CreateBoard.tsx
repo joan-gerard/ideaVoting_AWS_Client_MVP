@@ -1,6 +1,8 @@
 import { Button } from "@aws-amplify/ui-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 import API from "../utils/API";
 
@@ -19,6 +21,14 @@ const CreateBoard = () => {
       if (error.response) {
         console.log(error.response.data); // => the response payload
       }
+      if ((error as AxiosError).response?.status == 400) {
+        const responseData = (error as AxiosError).response?.data as {
+          message: string;
+        };
+        console.log(responseData);
+        toast(responseData.message);
+      }
+
     });
 
     navigate(`/boards/${res.id}`);
