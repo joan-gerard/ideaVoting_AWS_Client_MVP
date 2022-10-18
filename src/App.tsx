@@ -1,11 +1,13 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { Amplify } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import amplifyConfig from "./aws-exports";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
+import amplifyConfig from "./aws-exports";
 
 Amplify.configure(amplifyConfig);
 
@@ -14,7 +16,10 @@ function App() {
     <div className="App">
       <Authenticator>
         {({ signOut, user }) => (
-          <AppRoutes user={user} signOut={signOut} />
+          <main>
+            <AppRoutes user={user} signOut={signOut} />
+            <ToastContainer />
+          </main>
         )}
       </Authenticator>
     </div>

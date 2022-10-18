@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { AxiosError } from 'axios';
+
 import API from "../utils/API";
+
 
 const ViewBoard = () => {
   const params = useParams(); // inside your component
@@ -59,6 +63,12 @@ const ViewBoard = () => {
       if (error.response) {
         console.log(error.response.data); // => the response payload
       }
+      if ((error as AxiosError).response?.status == 400) {
+        const responseData = (error as AxiosError).response?.data as { message: string };
+        console.log(responseData);
+        toast(responseData.message);
+      }
+
     });
     getBoard();
   };
