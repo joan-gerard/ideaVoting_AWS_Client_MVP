@@ -7,11 +7,9 @@ import API from "../utils/API";
 const ViewBoards = () => {
   const [boards, setBoards] = useState<BoardListData[]>([]);
 
-  console.log({boards})
 
   const getBoards = async () => {
     const res = await API.get<BoardListData[]>({ path: "/boards" });
-    console.log("get board data response", res);
     setBoards(res);
   };
 

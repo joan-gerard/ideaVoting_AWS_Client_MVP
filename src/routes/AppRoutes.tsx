@@ -13,6 +13,8 @@ interface Props extends React.PropsWithChildren {
 }
 
 const AppRoutes = (props: Props) => {
+
+  console.log({user: props.user})
   return (
     <div>
       <div className="nav">

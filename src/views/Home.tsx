@@ -6,14 +6,7 @@ const Home = () => {
   const [privateBoardID, setPrivateBoardID] = useState("");
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "300px",
-        margin: "30px auto",
-      }}
-    >
+    <div>
       <Link to="/boards">
         <Button>View Public Boards</Button>
       </Link>
@@ -24,7 +17,7 @@ const Home = () => {
           onChange={(e) => setPrivateBoardID(e.target.value)}
           placeholder="private board ID"
         />
-        <Link to={`/board/${privateBoardID}`}>
+        <Link to={`/boards/${privateBoardID}`}>
           <Button>View Private Board</Button>
         </Link>
       </div>

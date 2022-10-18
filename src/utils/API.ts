@@ -22,8 +22,6 @@ const API = {
   }) => {
     const user = await Auth.currentSession();
 
-    console.log({ user });
-
     const headers =
       method === "GET"
         ? {}
@@ -36,13 +34,8 @@ const API = {
       data,
     };
 
-    console.log({ requestConfig });
-
     const axiosRes = await Axios.request<T>(requestConfig);
-    console.log({ axiosRes });
     const res = axiosRes.data;
-    console.log("HERE!!!");
-    console.log({ res });
     return res as T;
   },
 };

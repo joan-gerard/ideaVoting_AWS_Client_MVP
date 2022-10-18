@@ -8,11 +8,8 @@ const ViewBoard = () => {
 
   const [boardData, setBoardData] = useState<BoardData>();
 
-  console.log({ boardId });
-
   const getBoard = async () => {
     const res = await API.get<BoardData>({ path: `/boards/${boardId}` });
-    console.log("get board response", res);
     setBoardData(res);
   };
 
@@ -26,7 +23,7 @@ const ViewBoard = () => {
       <p>{boardData?.description}</p>
       <div>
         {boardData?.ideas.map((idea) => (
-          <div>
+          <div key={idea.id}>
             <h3>{idea.ideaTitle}</h3>
             <p>{idea.description}</p>
             <p>Votes = {idea.votes}</p>
