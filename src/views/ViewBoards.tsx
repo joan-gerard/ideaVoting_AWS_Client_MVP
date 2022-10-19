@@ -7,6 +7,7 @@ import API from "../utils/API";
 
 const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   const [boards, setBoards] = useState<BoardListData[]>([]);
+  const navigate = useNavigate();
 
   const getBoards = async () => {
     const res = await API.get<BoardListData[]>({ path: "/boards" });
@@ -14,6 +15,7 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   };
 
   useEffect(() => {
+    navigate("/boards");
     getBoards();
   }, []);
   console.table(boards);
@@ -28,14 +30,10 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "300px",
-        margin: "30px auto",
-      }}
-    >
+    <div>
+      <Link to="/">
+        <button>Home</button>
+      </Link>
       <h1>Boards</h1>
       <div className="boardList">
         {boards.map(({ boardName, description, id, ownerId }) => {

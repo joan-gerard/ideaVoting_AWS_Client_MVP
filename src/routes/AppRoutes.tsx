@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthEventData, AmplifyUser } from "@aws-amplify/ui";
 import { Route, Link, Routes } from "react-router-dom";
+import { FaSignOutAlt } from "react-icons/fa";
 
 import Home from "../views/Home";
 import ViewBoards from "../views/ViewBoards";
@@ -13,18 +14,15 @@ interface Props extends React.PropsWithChildren {
 }
 
 const AppRoutes = (props: Props) => {
-
-  console.log({user: props.user})
+  console.log({ user: props.user });
   return (
     <div>
-      <div className="nav">
-        <Link to="/">
+      <div className="header">
+        <h1 className="app-name">Idea Voting App</h1>
+        <FaSignOutAlt onClick={props.signOut} />
+        {/* <Link to="/">
           <button>Home</button>
-        </Link>
-
-        <h1>Idea Voting App</h1>
-
-        <button onClick={props.signOut}>Sign Out</button>
+        </Link> */}
       </div>
       <Routes>
         <Route path="/" element={<Home />} />

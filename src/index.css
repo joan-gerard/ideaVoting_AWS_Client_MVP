@@ -8,15 +8,96 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-html, body, #root, .App {
-  height: 100%
+html,
+body,
+#root,
+.App {
+  height: 100%;
 }
 
 .App {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
+.header {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-name {
+  margin: 0;
+}
+
+.home {
+  padding: 2rem;
+}
+
+.app-presentation__wrapper {
+  padding: 1rem;
+  display: flex;
+}
+.app-presentation {
+  margin: 0;
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translate(0, -5px);
+}
+
+.card__info p {
+  margin: 0;
+}
+
+.card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.icon__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #43a4d1;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+
+}
+
+.test {
+  height: 50%;
+  width: 50%;
+}
