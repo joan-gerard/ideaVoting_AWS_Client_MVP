@@ -5,6 +5,7 @@ import { Flip, toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { BsClipboardPlus } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
+import { FaListUl } from "react-icons/fa";
 
 import API from "../utils/API";
 
@@ -49,7 +50,7 @@ const Home = () => {
         <div onClick={() => navigate("/boards")} className="card">
           <Flex direction="row" alignItems="center">
             <div className="icon__wrapper">
-              <BsClipboardPlus className="test" />
+              <FaListUl className="icon" />
             </div>
             <div className="card__info">
               <p className="card__title">Public Boards</p>
@@ -60,7 +61,7 @@ const Home = () => {
         <div onClick={() => navigate("/createboard/")} className="card">
           <Flex direction="row" alignItems="center">
             <div className="icon__wrapper">
-              <BsClipboardPlus className="test" />
+              <BsClipboardPlus className="icon" />
             </div>
             <div className="card__info">
               <p className="card__title">New Board</p>
@@ -71,7 +72,7 @@ const Home = () => {
         <div onClick={() => navigate("")} className="card">
           <Flex direction="row" alignItems="center">
             <div className="icon__wrapper">
-              <BiSearchAlt className="test" />
+              <BiSearchAlt className="icon" />
             </div>
             <div className="card__info">
               <p className="card__title">Find Board</p>

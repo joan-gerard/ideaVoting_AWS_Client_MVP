@@ -30,6 +30,7 @@ body,
   background-position: center;
 }
 
+/* AppRoutes - start */
 .header {
   background-color: white;
   padding: 0.5rem 1rem;
@@ -42,6 +43,18 @@ body,
   margin: 0;
 }
 
+.signout-icon {
+  height: 50%;
+  width: 50%;
+  transition: 0.3s;
+}
+
+.signout-icon:hover {
+  transform: scale(1.2);
+}
+/* AppRoutes - end */
+
+/* Home - start */
 .home {
   padding: 2rem;
 }
@@ -71,7 +84,7 @@ body,
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 
 .card:hover {
   transform: translate(0, -5px);
@@ -90,14 +103,14 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #43a4d1;
+  background-color:#7eb4da;
   height: 50px;
   width: 50px;
   border-radius: 5px;
-
 }
 
-.test {
+.icon {
   height: 50%;
   width: 50%;
 }
+/* Home - end */

@@ -19,7 +19,9 @@ const AppRoutes = (props: Props) => {
     <div>
       <div className="header">
         <h1 className="app-name">Idea Voting App</h1>
-        <FaSignOutAlt onClick={props.signOut} />
+        <div className="icon__wrapper">
+          <FaSignOutAlt onClick={props.signOut} className="signout-icon" />
+        </div>
         {/* <Link to="/">
           <button>Home</button>
         </Link> */}
