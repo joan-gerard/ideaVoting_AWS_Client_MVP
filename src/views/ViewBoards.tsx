@@ -1,7 +1,8 @@
-import { Button } from "@aws-amplify/ui-react";
+import { Button, Flex } from "@aws-amplify/ui-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Flip, toast } from "react-toastify";
+import { IoTrashOutline } from "react-icons/io5";
 
 import API from "../utils/API";
 
@@ -30,21 +31,39 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   };
 
   return (
-    <div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-      <h1>Boards</h1>
-      <div className="boardList">
+    <div className="view">
+      <Flex direction="row" justifyContent="space-between" alignItems="center">
+        <h1>Boards</h1>
+        <Button onClick={() => navigate("/")}>Home</Button>
+      </Flex>
+      <div className="app-presentation__wrapper">
+        <p className="app-presentation">
+          Select a board to add ideas open for voting.
+        </p>
+      </div>
+      <div className="card__wrapper">
         {boards.map(({ boardName, description, id, ownerId }) => {
           return (
-            <div className="board" key={id}>
-              <h2>{boardName}</h2>
-              <div>{description}</div>
-              <Link to={`/boards/${id}`}>View Board</Link>
-              {ownerId === user.username && (
-                <button onClick={() => deleteBoard(id)}>XX</button>
-              )}
+            <div className="card board-card" key={id}>
+              <div
+                className="card__info"
+                onClick={() => navigate(`/boards/${id}`)}
+              >
+                <p className="card__title">{boardName}</p>
+                {description === "" ? (
+                  <p className="no-desc__message">No description available</p>
+                ) : (
+                  <p>{description}</p>
+                )}
+              </div>
+              <div className="trash-icon__wrapper">
+                {ownerId === user.username && (
+                  <IoTrashOutline
+                    onClick={() => deleteBoard(id)}
+                    className="trash-icon"
+                  />
+                )}
+              </div>
             </div>
           );
         })}

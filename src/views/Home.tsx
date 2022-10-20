@@ -39,14 +39,14 @@ const Home = () => {
   };
 
   return (
-    <div className="home">
+    <div className="view">
       <div className="app-presentation__wrapper">
         <p className="app-presentation">
           An app where you can create voting boards, suggest ideas and vote on
           ideas.
         </p>
       </div>
-      <div className="links">
+      <div className="card__wrapper">
         <div onClick={() => navigate("/boards")} className="card">
           <Flex direction="row" alignItems="center">
             <div className="icon__wrapper">
