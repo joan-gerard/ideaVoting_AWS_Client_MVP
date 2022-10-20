@@ -48,7 +48,7 @@ const Home = () => {
       </div>
       <div className="card__wrapper">
         <div onClick={() => navigate("/boards")} className="card">
-          <Flex direction="row" alignItems="center">
+          <Flex direction="row" alignItems="center" width="100%">
             <div className="icon__wrapper">
               <FaListUl className="icon" />
             </div>
@@ -59,7 +59,7 @@ const Home = () => {
           </Flex>
         </div>
         <div onClick={() => navigate("/createboard/")} className="card">
-          <Flex direction="row" alignItems="center">
+          <Flex direction="row" alignItems="center" width="100%">
             <div className="icon__wrapper">
               <BsClipboardPlus className="icon" />
             </div>
@@ -70,7 +70,7 @@ const Home = () => {
           </Flex>
         </div>
         <div onClick={() => navigate("")} className="card">
-          <Flex direction="row" alignItems="center">
+          <Flex direction="row" alignItems="center" width="100%">
             <div className="icon__wrapper">
               <BiSearchAlt className="icon" />
             </div>

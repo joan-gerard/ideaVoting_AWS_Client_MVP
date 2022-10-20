@@ -44,7 +44,7 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
       <div className="card__wrapper">
         {boards.map(({ boardName, description, id, ownerId }) => {
           return (
-            <div className="card board-card" key={id}>
+            <div className="board-card jc-between" key={id}>
               <div
                 className="card__info"
                 onClick={() => navigate(`/boards/${id}`)}
