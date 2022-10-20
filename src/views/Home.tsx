@@ -11,6 +11,7 @@ import API from "../utils/API";
 
 const Home = () => {
   const [privateBoardID, setPrivateBoardID] = useState("");
+  const [showBoardSearch, setShowBoardSearch] = useState(false);
   const navigate = useNavigate();
 
   const viewPrivateBoard = async () => {
@@ -24,9 +25,15 @@ const Home = () => {
     const allPrivateBoards = await API.get<BoardListData[]>({
       path: "/private-boards",
     });
+    const allPublicBoards = await API.get<BoardListData[]>({
+      path: "/boards",
+    });
 
     if (
       allPrivateBoards.some((board) => {
+        return board.id === privateBoardID;
+      }) ||
+      allPublicBoards.some((board) => {
         return board.id === privateBoardID;
       })
     ) {
@@ -69,7 +76,10 @@ const Home = () => {
             </div>
           </Flex>
         </div>
-        <div onClick={() => navigate("")} className="card">
+        <div
+          onClick={() => setShowBoardSearch(!showBoardSearch)}
+          className="card"
+        >
           <Flex direction="row" alignItems="center" width="100%">
             <div className="icon__wrapper">
               <BiSearchAlt className="icon" />
@@ -81,15 +91,19 @@ const Home = () => {
           </Flex>
         </div>
         <div>
-          {/* <input
-            type="text"
-            value={privateBoardID}
-            onChange={(e) => setPrivateBoardID(e.target.value)}
-            placeholder="private board ID"
-          /> */}
-          {/* <Link to={`/boards/${privateBoardID}`}> */}
-          <Button onClick={() => viewPrivateBoard()}>View Private Board</Button>
-          {/* </Link> */}
+          {showBoardSearch && (
+            <div className="find-board__form">
+              <input
+                type="text"
+                value={privateBoardID}
+                onChange={(e) => setPrivateBoardID(e.target.value)}
+                placeholder="enter board ID..."
+              />
+              <Button onClick={() => viewPrivateBoard()} size="small">
+                View Board
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -72,7 +72,6 @@ const ViewBoard = () => {
         const responseData = (error as AxiosError).response?.data as {
           message: string;
         };
-        console.log(responseData);
         toast(responseData.message, {
           transition: Flip,
         });
@@ -87,6 +86,7 @@ const ViewBoard = () => {
       <Flex direction="row" justifyContent="space-between" alignItems="center">
         <Flex direction="column" className="board__info">
           <p>{boardData?.boardName}</p>
+          <p>{boardData?.id}</p>
           <p>{date}</p>
         </Flex>
 
@@ -136,7 +136,7 @@ const ViewBoard = () => {
         <div className="idea-form">
           <div className="inputs__wrapper">
             <div className="">
-              <span className="card__title">Idea</span>
+              <span className="card__title">Idea*</span>
               <input
                 type="text"
                 value={ideaName}
@@ -161,6 +161,7 @@ const ViewBoard = () => {
               size="small"
               isLoading={isAddingIdea}
               loadingText="submitting"
+              isDisabled={ideaName === "" ? true : false}
             >
               Submit
             </Button>

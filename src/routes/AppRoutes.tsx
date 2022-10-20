@@ -16,7 +16,6 @@ interface Props extends React.PropsWithChildren {
 const AppRoutes = (props: Props) => {
   const navigate = useNavigate();
 
-  console.log({ user: props.user });
   return (
     <div>
       <div className="header">

@@ -19,8 +19,6 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
     navigate("/boards");
     getBoards();
   }, []);
-  console.table(boards);
-  console.log(user.username);
 
   const deleteBoard = async (id: string) => {
     await API.delete<BoardData>({ path: `/boards/${id}` });
