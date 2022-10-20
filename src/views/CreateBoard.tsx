@@ -10,10 +10,12 @@ const CreateBoard = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [isPublic, setIsPublic] = useState(true);
+  const [isCreatingBoard, setisCreatingBoard] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async () => {
-    console.log({ name, description, isPublic });
+    if (name) setisCreatingBoard(true);
+
     const res = await API.post({
       path: "/boards",
       data: { name, description, isPublic },
@@ -36,38 +38,49 @@ const CreateBoard = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "300px",
-        margin: "30px auto",
-      }}
-    >
-      <span>Board Name</span>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Board Name"
-      />
-      <span>Board Description</span>
-      <input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="Board Description"
-      />
-      <div>
-        <span>Make Private</span>
-        <input
-          type="checkbox"
-          checked={!isPublic}
-          onChange={() => setIsPublic(!isPublic)}
-        />
+    <div className="view">
+      <div className="create-board__form">
+        <div className="inputs__wrapper">
+          <div>
+            <span>Name*</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Board Name"
+            />
+          </div>
+          <div>
+            <span>Description</span>
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Board Description"
+            />
+          </div>
+        </div>
+        <div>
+          <span>Make Private</span>
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={!isPublic}
+            onChange={() => setIsPublic(!isPublic)}
+          />
+        </div>
+        <div className="create-board__wrapper">
+          <Button
+            onClick={() => onSubmit()}
+            size="small"
+            variation="primary"
+            isLoading={isCreatingBoard}
+            loadingText="creating"
+          >
+            Create
+          </Button>
+        </div>
       </div>
-
-      <Button onClick={() => onSubmit()}>Create</Button>
     </div>
   );
 };

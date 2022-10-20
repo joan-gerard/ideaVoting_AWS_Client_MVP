@@ -3,8 +3,6 @@ import Axios, { Method, AxiosRequestConfig } from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
-console.log({ baseUrl });
-
 const API = {
   get: async <T>({ path }: { path: string }) => API.request<T>({ path }),
   delete: async <T>({ path }: { path: string }) => API.request<T>({ path, method: "DELETE" }),

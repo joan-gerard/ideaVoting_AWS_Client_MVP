@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthEventData, AmplifyUser } from "@aws-amplify/ui";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes, useNavigate } from "react-router-dom";
+import { FaSignOutAlt } from "react-icons/fa";
 
 import Home from "../views/Home";
 import ViewBoards from "../views/ViewBoards";
@@ -13,18 +14,23 @@ interface Props extends React.PropsWithChildren {
 }
 
 const AppRoutes = (props: Props) => {
+  const navigate = useNavigate();
 
-  console.log({user: props.user})
   return (
     <div>
-      <div className="nav">
-        <Link to="/">
+      <div className="header">
+        <h1 className="app-name" onClick={() => navigate("/")}>
+          Idea Voting App
+        </h1>
+        <div
+          className="signout-icon__wrapper icon__wrapper"
+          onClick={props.signOut}
+        >
+          <FaSignOutAlt className="signout-icon" />
+        </div>
+        {/* <Link to="/">
           <button>Home</button>
-        </Link>
-
-        <h1>Idea Voting App</h1>
-
-        <button onClick={props.signOut}>Sign Out</button>
+        </Link> */}
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
