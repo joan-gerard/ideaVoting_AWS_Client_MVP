@@ -3,8 +3,8 @@
   "name": "Ideas Voting App",
   "icons": [
     {
-      "src": "icons8-idea-32.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon.ico",
+      "sizes": "32x32",
       "type": "image/x-icon"
     }
   ],

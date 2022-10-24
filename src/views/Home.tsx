@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Flex } from "@aws-amplify/ui-react";
+import { Button } from "@aws-amplify/ui-react";
 import { Flip, toast } from "react-toastify";
 import { BsClipboardPlus } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
