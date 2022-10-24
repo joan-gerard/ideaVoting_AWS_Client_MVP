@@ -54,7 +54,7 @@ const Home = () => {
       </div>
       <div className="cards__wrapper">
         <div onClick={() => navigate("/boards")} className="card">
-          <Flex direction="row" alignItems="center" width="100%">
+          <div className="test">
             <div className="icon__wrapper">
               <FaListUl className="icon" />
             </div>
@@ -62,7 +62,7 @@ const Home = () => {
               <p className="card__title">Public Boards</p>
               <p>View public boards created by yourself and others</p>
             </div>
-          </Flex>
+          </div>
         </div>
         <div onClick={() => navigate("/createboard/")} className="card">
           <Flex direction="row" alignItems="center" width="100%">
