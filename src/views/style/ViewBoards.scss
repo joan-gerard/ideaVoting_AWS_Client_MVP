@@ -22,21 +22,26 @@
   justify-content: space-between;
 }
 
-.trash-icon__wrapper {
+.trash-icon__wrapper,
+.create-icon__wrapper {
   height: 100%;
   width: 10%;
   display: flex;
   align-items: center;
 }
-.trash-icon {
+.trash-icon,
+.create-icon {
   margin: auto;
-  color: red;
-  width: 40%;
-  height: 40%;
+  width: 75%;
+  height: 75%;
   transition: 0.3s;
 
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.trash-icon {
+  color: red;
 }
 /* ViewBoards - end */

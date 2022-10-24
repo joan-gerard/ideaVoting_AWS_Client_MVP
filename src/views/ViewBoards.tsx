@@ -82,8 +82,8 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
               <p className="card__title">There are no boards at the moment!</p>
               <p className="no-desc__message">Click to create a board</p>
             </div>
-            <div className="trash-icon__wrapper">
-              <BsClipboardPlus className="icon" />
+            <div className="create-icon__wrapper">
+              <BsClipboardPlus className="create-icon" />
             </div>
           </div>
         )}

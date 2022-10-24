@@ -65,7 +65,7 @@ const Home = () => {
           </div>
         </div>
         <div onClick={() => navigate("/createboard/")} className="card">
-          <Flex direction="row" alignItems="center" width="100%">
+          <div className="test">
             <div className="icon__wrapper">
               <BsClipboardPlus className="icon" />
             </div>
@@ -73,13 +73,13 @@ const Home = () => {
               <p className="card__title">New Board</p>
               <p>Create a new board</p>
             </div>
-          </Flex>
+          </div>
         </div>
         <div
           onClick={() => setShowBoardSearch(!showBoardSearch)}
           className="card"
         >
-          <Flex direction="row" alignItems="center" width="100%">
+          <div className="test">
             <div className="icon__wrapper">
               <BiSearchAlt className="icon" />
             </div>
@@ -87,7 +87,7 @@ const Home = () => {
               <p className="card__title">Find Board</p>
               <p>Find a public or a private board using a board id</p>
             </div>
-          </Flex>
+          </div>
         </div>
         <div>
           {showBoardSearch && (
