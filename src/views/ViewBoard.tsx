@@ -7,6 +7,7 @@ import { Button, Flex } from "@aws-amplify/ui-react";
 
 import API from "../utils/API";
 import "./style/ViewBoard.scss";
+import CreateIdea from "../components/CreateIdea";
 
 const ViewBoard = () => {
   const params = useParams(); // inside your component
@@ -89,13 +90,13 @@ const ViewBoard = () => {
     <div className="view">
       <Flex direction="row" justifyContent="space-between" alignItems="center">
         <Flex direction="column" className="board__info">
-          <p>{boardData?.boardName}</p>
+          <p>Created: {date}</p>
           <p>{boardData?.id}</p>
-          <p>{date}</p>
         </Flex>
 
         <Button onClick={() => navigate("/boards")}>Boards</Button>
       </Flex>
+      <p className="board__title">{boardData?.boardName}</p>
 
       <div className="board">
         <div className="board board__desc">
@@ -137,40 +138,14 @@ const ViewBoard = () => {
       </div>
 
       {showCreateIdea ? (
-        <div className="idea-form">
-          <div className="inputs__wrapper">
-            <div className="">
-              <span className="card__title">Idea*</span>
-              <input
-                type="text"
-                value={ideaName}
-                onChange={(e) => setIdeaName(e.target.value)}
-                placeholder="What's your idea..."
-              />
-            </div>
-            <div>
-              <span className="card__title">Details</span>
-              <input
-                type="text"
-                value={ideaDescription}
-                onChange={(e) => setIdeaDescription(e.target.value)}
-                placeholder="Add details..."
-              />
-            </div>
-          </div>
-          <div className="">
-            <Button
-              onClick={() => submitIdea()}
-              variation="primary"
-              size="small"
-              isLoading={isAddingIdea}
-              loadingText="submitting"
-              isDisabled={ideaName === "" ? true : false}
-            >
-              Submit
-            </Button>
-          </div>
-        </div>
+        <CreateIdea
+          ideaName={ideaName}
+          ideaDescription={ideaDescription}
+          setIdeaName={setIdeaName}
+          setIdeaDescription={setIdeaDescription}
+          isAddingIdea={isAddingIdea}
+          submitIdea={submitIdea}
+        />
       ) : null}
     </div>
   );

@@ -17,9 +17,18 @@ interface BoardListData {
   id: string;
   owner: string;
   public: true;
-  ownerId: string
+  ownerId: string;
 }
 
 type ViewBoardsProps = {
-  user: AmplifyUser
-}
+  user: AmplifyUser;
+};
+
+type CreateIdeaProps = {
+  ideaName: string;
+  ideaDescription: string;
+  setIdeaName: (a: string) => void;
+  setIdeaDescription: (a: string) => void;
+  isAddingIdea: boolean;
+  submitIdea: () => void;
+};

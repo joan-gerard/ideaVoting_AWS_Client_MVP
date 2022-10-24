@@ -108,21 +108,26 @@ html {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.inputs__wrapper {
-  // width: 80%;
+.idea-form__inputs {
+  width: 80%;
 }
 
-.inputs__wrapper div {
+.create-boards__inputs div,
+.idea-form__inputs div {
   margin: 0.5rem 0;
 }
-.inputs__wrapper div {
+.create-boards__inputs div,
+.idea-form__inputs div {
   display: flex;
   width: 100%;
+  align-items: center;
 }
-.inputs__wrapper div span {
+.create-boards__inputs div span,
+.idea-form__inputs div span {
   width: 30%;
 }
-.inputs__wrapper div input {
+.create-boards__inputs div input,
+.idea-form__inputs div input {
   display: flex;
   width: 65%;
 }

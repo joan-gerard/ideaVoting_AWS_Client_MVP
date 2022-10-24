@@ -41,7 +41,7 @@ const CreateBoard = () => {
   return (
     <div className="view">
       <div className="create-board__form">
-        <div className="inputs__wrapper">
+        <div className="create-boards__inputs">
           <div>
             <span>Name*</span>
             <input
