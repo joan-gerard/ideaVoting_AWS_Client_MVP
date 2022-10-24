@@ -6,7 +6,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import { BsClipboardPlus } from "react-icons/bs";
 
 import API from "../utils/API";
-import './style/ViewBoards.scss'
+import "./style/ViewBoards.scss";
 
 const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   const [boards, setBoards] = useState<BoardListData[]>([]);
@@ -20,6 +20,7 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   useEffect(() => {
     navigate("/boards");
     getBoards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteBoard = async (id: string) => {

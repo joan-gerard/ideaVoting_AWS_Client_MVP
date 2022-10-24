@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthEventData, AmplifyUser } from "@aws-amplify/ui";
-import { Route, Link, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
 
 import Home from "../views/Home";

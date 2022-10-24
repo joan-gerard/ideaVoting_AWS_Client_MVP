@@ -6,7 +6,7 @@ import { MdOutlineHowToVote } from "react-icons/md";
 import { Button, Flex } from "@aws-amplify/ui-react";
 
 import API from "../utils/API";
-import './style/ViewBoard.scss'
+import "./style/ViewBoard.scss";
 
 const ViewBoard = () => {
   const params = useParams(); // inside your component
@@ -48,7 +48,7 @@ const ViewBoard = () => {
 
   const submitIdea = async () => {
     setIsAddingIdea(true);
-    const res = await API.post({
+    await API.post({
       path: "/ideas",
       data: { title: ideaName, description: ideaDescription, boardId },
     }).catch((error) => {
@@ -65,14 +65,14 @@ const ViewBoard = () => {
 
   const voteOnIdea = async (id: string) => {
     // setIsVoting(true);
-    const res = await API.post({
+    await API.post({
       path: `/ideas/${id}`,
       data: {},
     }).catch((error) => {
       if (error.response) {
         console.log(error.response.data); // => the response payload
       }
-      if ((error as AxiosError).response?.status == 400) {
+      if ((error as AxiosError).response?.status === 400) {
         const responseData = (error as AxiosError).response?.data as {
           message: string;
         };

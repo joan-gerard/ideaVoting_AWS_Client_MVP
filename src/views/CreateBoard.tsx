@@ -24,7 +24,7 @@ const CreateBoard = () => {
       if (error.response) {
         console.log(error.response.data); // => the response payload
       }
-      if ((error as AxiosError).response?.status == 400) {
+      if ((error as AxiosError).response?.status === 400) {
         const responseData = (error as AxiosError).response?.data as {
           message: string;
         };

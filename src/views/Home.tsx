@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Card, Flex } from "@aws-amplify/ui-react";
+import { useNavigate } from "react-router-dom";
+import { Button, Flex } from "@aws-amplify/ui-react";
 import { Flip, toast } from "react-toastify";
-import { AxiosError } from "axios";
 import { BsClipboardPlus } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { FaListUl } from "react-icons/fa";
