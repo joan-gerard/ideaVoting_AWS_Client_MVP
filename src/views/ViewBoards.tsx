@@ -10,10 +10,13 @@ import "./style/ViewBoards.scss";
 
 const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
   const [boards, setBoards] = useState<BoardListData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const getBoards = async () => {
+    setIsLoading(true);
     const res = await API.get<BoardListData[]>({ path: "/boards" });
+    setIsLoading(false);
     setBoards(res);
   };
 
@@ -43,49 +46,57 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
         </p>
       </div>
       <div className="cards__wrapper">
-        {boards.length >= 1 ? (
-          <>
-            {boards.map(({ boardName, description, id, ownerId }) => {
-              return (
-                <div className="board-card jc-between" key={id}>
-                  <div
-                    className="card__info"
-                    onClick={() => navigate(`/boards/${id}`)}
-                  >
-                    <p className="card__title">{boardName}</p>
-                    {description === "" ? (
-                      <p className="no-desc__message">
-                        No description available
-                      </p>
-                    ) : (
-                      <p>{description}</p>
-                    )}
-                  </div>
-                  <div className="trash-icon__wrapper">
-                    {ownerId === user.username && (
-                      <IoTrashOutline
-                        onClick={() => deleteBoard(id)}
-                        className="trash-icon"
-                      />
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </>
+        {isLoading ? (
+          <p>Loading...</p>
         ) : (
-          <div className="board-card jc-between">
-            <div
-              className="card__info"
-              onClick={() => navigate(`/createboard/`)}
-            >
-              <p className="card__title">There are no boards at the moment!</p>
-              <p className="no-desc__message">Click to create a board</p>
-            </div>
-            <div className="create-icon__wrapper">
-              <BsClipboardPlus className="create-icon" />
-            </div>
-          </div>
+          <>
+            {boards.length >= 1 ? (
+              <>
+                {boards.map(({ boardName, description, id, ownerId }) => {
+                  return (
+                    <div className="board-card jc-between" key={id}>
+                      <div
+                        className="card__info"
+                        onClick={() => navigate(`/boards/${id}`)}
+                      >
+                        <p className="card__title">{boardName}</p>
+                        {description === "" ? (
+                          <p className="no-desc__message">
+                            No description available
+                          </p>
+                        ) : (
+                          <p>{description}</p>
+                        )}
+                      </div>
+                      <div className="trash-icon__wrapper">
+                        {ownerId === user.username && (
+                          <IoTrashOutline
+                            onClick={() => deleteBoard(id)}
+                            className="trash-icon"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <div className="board-card jc-between">
+                <div
+                  className="card__info"
+                  onClick={() => navigate(`/createboard/`)}
+                >
+                  <p className="card__title">
+                    There are no boards at the moment!
+                  </p>
+                  <p className="no-desc__message">Click to create a board</p>
+                </div>
+                <div className="create-icon__wrapper">
+                  <BsClipboardPlus className="create-icon" />
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

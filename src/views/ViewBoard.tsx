@@ -86,6 +86,8 @@ const ViewBoard = () => {
     // setIsVoting(false);
   };
 
+  const sortedIdeas = boardData?.ideas.sort((a, b) => a.date - b.date);
+
   return (
     <div className="view">
       <Flex direction="row" justifyContent="space-between" alignItems="center">
@@ -96,14 +98,14 @@ const ViewBoard = () => {
 
         <Button onClick={() => navigate("/boards")}>Boards</Button>
       </Flex>
-      <p className="board__title">{boardData?.boardName}</p>
 
-      <div className="board">
+      <div className="">
         <div className="board board__desc">
-          <p>{boardData?.description}</p>
+          <p className="board__title">{boardData?.boardName}</p>
+          {boardData?.description && <p>{boardData?.description}</p>}
         </div>
         <div className="">
-          {boardData?.ideas.map(({ ideaTitle, description, votes, id }) => (
+          {sortedIdeas?.map(({ ideaTitle, description, votes, id }) => (
             <div key={id} className="idea-card">
               <div className="vote__wrapper">
                 <p>{votes}</p>
