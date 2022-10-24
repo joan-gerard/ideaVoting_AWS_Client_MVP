@@ -5,6 +5,7 @@ import { Flip, toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import API from "../utils/API";
+import './style/CreateBoard.scss'
 
 const CreateBoard = () => {
   const [name, setName] = useState("");

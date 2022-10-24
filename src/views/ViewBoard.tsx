@@ -6,6 +6,7 @@ import { MdOutlineHowToVote } from "react-icons/md";
 import { Button, Flex } from "@aws-amplify/ui-react";
 
 import API from "../utils/API";
+import './style/ViewBoard.scss'
 
 const ViewBoard = () => {
   const params = useParams(); // inside your component
@@ -16,7 +17,7 @@ const ViewBoard = () => {
   const [showCreateIdea, setShowCreateIdea] = useState(false);
   const [ideaName, setIdeaName] = useState("");
   const [ideaDescription, setIdeaDescription] = useState("");
-  const [isVoting, setIsVoting] = useState(false);
+  // const [isVoting, setIsVoting] = useState(false);
   const [isAddingIdea, setIsAddingIdea] = useState(false);
 
   const navigate = useNavigate();
@@ -37,9 +38,12 @@ const ViewBoard = () => {
 
   useEffect(() => {
     getBoard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     getDate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boardData]);
 
   const submitIdea = async () => {
@@ -110,7 +114,7 @@ const ViewBoard = () => {
               <div className="cta__wrapper">
                 <Button
                   onClick={() => voteOnIdea(id)}
-                  isLoading={isVoting}
+                  // isLoading={isVoting}
                   loadingText="voting"
                 >
                   <MdOutlineHowToVote />

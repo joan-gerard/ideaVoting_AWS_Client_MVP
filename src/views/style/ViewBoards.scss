@@ -1,0 +1,42 @@
+/* ViewBoards - start */
+
+.board-card {
+  transition: 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: 0.5s;
+
+  &:hover {
+    transform: translate(0, -5px);
+    cursor: pointer;
+  }
+}
+
+.no-desc__message {
+  font-style: italic;
+}
+
+.jc-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trash-icon__wrapper {
+  height: 100%;
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+.trash-icon {
+  margin: auto;
+  color: red;
+  width: 40%;
+  height: 40%;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+/* ViewBoards - end */

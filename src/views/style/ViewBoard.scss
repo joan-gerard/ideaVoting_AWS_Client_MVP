@@ -1,0 +1,85 @@
+/* ViewBoard - start */
+
+.board {
+  display: flex;
+  flex-direction: column;
+}
+
+.board__desc {
+  display: flex;
+
+  p {
+    margin: 0;
+  }
+
+  & p {
+    display: flex;
+    margin: 1rem auto;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}
+
+.board__info {
+  p {
+    margin: 0;
+  }
+
+  p:nth-child(1) {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+}
+
+.idea-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vote__wrapper {
+  background-color: #1d8e96;
+  width: 7.5%;
+  text-align: center;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin: 0;
+
+  p {
+    margin: 0;
+    color: white;
+  }
+}
+
+.idea-info {
+  width: 72.5%;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0;
+  }
+}
+.cta__wrapper {
+  display: flex;
+  width: 20%;
+
+  button {
+    margin: auto;
+  }
+}
+
+.add-idea__wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.idea-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ViewBoard - end */

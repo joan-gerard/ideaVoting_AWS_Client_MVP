@@ -47,13 +47,13 @@ const Home = () => {
 
   return (
     <div className="view">
-      <div className="app-presentation__wrapper">
-        <p className="app-presentation">
+      <div className="page-presentation__wrapper">
+        <p className="page-presentation">
           An app where you can create voting boards, suggest ideas and vote on
           ideas.
         </p>
       </div>
-      <div className="card__wrapper">
+      <div className="cards__wrapper">
         <div onClick={() => navigate("/boards")} className="card">
           <Flex direction="row" alignItems="center" width="100%">
             <div className="icon__wrapper">

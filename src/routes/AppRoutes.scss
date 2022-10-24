@@ -1,0 +1,34 @@
+/* AppRoutes - start */
+.header {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-name {
+  margin: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.signout-icon__wrapper {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .signout-icon {
+    transform: scale(1.2);
+  }
+}
+
+.signout-icon {
+  height: 50%;
+  width: 50%;
+  transition: 0.3s;
+}
+
+/* AppRoutes - end */

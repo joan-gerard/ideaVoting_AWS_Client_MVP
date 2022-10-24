@@ -7,6 +7,7 @@ import Home from "../views/Home";
 import ViewBoards from "../views/ViewBoards";
 import ViewBoard from "../views/ViewBoard";
 import CreateBoard from "../views/CreateBoard";
+import './AppRoutes.scss'
 
 interface Props extends React.PropsWithChildren {
   user: AmplifyUser | undefined;
@@ -28,9 +29,6 @@ const AppRoutes = (props: Props) => {
         >
           <FaSignOutAlt className="signout-icon" />
         </div>
-        {/* <Link to="/">
-          <button>Home</button>
-        </Link> */}
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
