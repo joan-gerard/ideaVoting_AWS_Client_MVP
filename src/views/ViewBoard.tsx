@@ -98,7 +98,9 @@ const ViewBoard = () => {
             <p>Board ID: {boardData?.id}</p>
           </Flex>
 
-          <Button onClick={() => navigate("/boards")}>Boards</Button>
+          <Button onClick={() => navigate("/boards")} variation="primary">
+            Boards
+          </Button>
         </Flex>
 
         <div className="">
@@ -117,10 +119,7 @@ const ViewBoard = () => {
                   <p>{description}</p>
                 </div>
                 <div className="cta__wrapper">
-                  <Button
-                    onClick={() => voteOnIdea(id)}
-                    loadingText="voting"
-                  >
+                  <Button onClick={() => voteOnIdea(id)} loadingText="voting">
                     <MdOutlineHowToVote />
                   </Button>
                 </div>

@@ -38,7 +38,7 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
     <div className="view">
       <Flex direction="row" justifyContent="space-between" alignItems="center">
         <h1>Boards</h1>
-        <Button onClick={() => navigate("/")}>Home</Button>
+        <Button onClick={() => navigate("/")} variation="primary">Home</Button>
       </Flex>
       <div className="page-presentation__wrapper">
         <p className="page-presentation">
