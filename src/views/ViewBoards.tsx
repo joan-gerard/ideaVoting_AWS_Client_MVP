@@ -81,11 +81,11 @@ const ViewBoards: React.FC<ViewBoardsProps> = ({ user }) => {
                 })}
               </>
             ) : (
-              <div className="board-card jc-between">
-                <div
-                  className="card__info"
-                  onClick={() => navigate(`/createboard/`)}
-                >
+              <div
+                className="board-card jc-between"
+                onClick={() => navigate(`/createboard/`)}
+              >
+                <div className="card__info">
                   <p className="card__title">
                     There are no boards at the moment!
                   </p>

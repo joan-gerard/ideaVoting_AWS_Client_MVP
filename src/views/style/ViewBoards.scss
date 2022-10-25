@@ -24,8 +24,8 @@
 
 .trash-icon__wrapper,
 .create-icon__wrapper {
-  height: 100%;
   width: 10%;
+  max-width: 30px;
   display: flex;
   align-items: center;
 }
@@ -45,3 +45,4 @@
   color: red;
 }
 /* ViewBoards - end */
+

@@ -10,3 +10,10 @@
 }
 
 /* CreateBoard - end */
+
+@media (min-width: 800px) {
+  .create-board__form {
+    max-width: 800px;
+    margin: auto;
+  }
+}
